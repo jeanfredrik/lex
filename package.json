@@ -1,0 +1,33 @@
+{
+  "name": "lex",
+  "description": "Test-drive your phonotactics",
+  "version": "1.0.0",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jeanfredrik/lex.git"
+  },
+  "author": "Fredrik Johansson <jeanfredrik@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb": "^15.0.1",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^5.0.1",
+    "eslint-plugin-react": "^7.0.1",
+    "react-scripts": "1.0.7"
+  },
+  "dependencies": {
+    "lodash": "^4.17.4",
+    "react": "^15.5.4",
+    "react-autobind": "^1.0.6",
+    "react-dom": "^15.5.4",
+    "styled-components": "^2.0.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
