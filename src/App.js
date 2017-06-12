@@ -1,5 +1,5 @@
 import React from 'react';
-import Main from './MainComponent';
+import Main from './containers/Main';
 
 const App = () => (
   <div className="flex flex-column height-100">
