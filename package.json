@@ -19,9 +19,13 @@
   },
   "dependencies": {
     "lodash": "^4.17.4",
+    "randomstring": "^1.1.5",
     "react": "^15.5.4",
     "react-autobind": "^1.0.6",
     "react-dom": "^15.5.4",
+    "react-redux": "^5.0.5",
+    "redux": "^3.6.0",
+    "reselect": "^3.0.1",
     "styled-components": "^2.0.0"
   },
   "scripts": {
