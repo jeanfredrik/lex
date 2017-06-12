@@ -4,3 +4,5 @@ env:
   browser: true
 rules:
   react/jsx-filename-extension: 0
+  no-case-declarations: 0
+  no-bitwise: 0
