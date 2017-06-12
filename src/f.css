@@ -781,10 +781,10 @@
 .right {
   text-align: right; }
 
-.underline {
+.active-underline:active, .focus-underline:focus, .hover-underline:hover, .underline {
   text-decoration: underline; }
 
-.no-underline, .btn {
+.active-no-underline:active, .focus-no-underline:focus, .hover-no-underline:hover, .no-underline, .btn {
   text-decoration: none; }
 
 .uppercase {
