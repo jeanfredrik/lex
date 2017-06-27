@@ -5,15 +5,15 @@ import {
 } from 'lodash/fp';
 
 const defaultDocValues = {
-  definitions: [
+  input: [
     'C=p,b,t,d,k,g,s,l,m,n,r,y,w',
     'F=s,l,m,n,r,y,w',
     'V=a,e,i,o,u',
-  ].join('\n'),
-  patterns: [
+    '',
     'CV',
     'CVF',
     'CVFCV',
+    '',
   ].join('\n'),
 };
 

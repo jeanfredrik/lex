@@ -1,4 +1,6 @@
 import { connect } from 'react-redux';
+import { parse } from '@jeanfredrik/lex-parser';
+
 import {
   getActiveDoc,
 } from '../selectors';
@@ -6,30 +8,34 @@ import {
   setDocValue,
 } from '../actions';
 import Main from '../components/Main';
-
 import {
-  parseDefinitions,
-  parsePatterns,
   makeWords,
 } from '../lib';
 
 export default connect(
   (state) => {
     const activeDoc = getActiveDoc(state);
+    let parsedInput = {};
+    let error = null;
+    try {
+      parsedInput = parse(activeDoc.input)[0] || {};
+    } catch (parseError) {
+      // eslint-disable-next-line no-console
+      console.error(parseError);
+      error = parseError;
+    }
     return {
       ...activeDoc,
-      words: makeWords(parseDefinitions(activeDoc.definitions), parsePatterns(activeDoc.patterns)),
+      words: makeWords(parsedInput),
+      error,
     };
   },
   null,
   (stateProps, { dispatch }, ownProps) => ({
     ...stateProps,
     ...ownProps,
-    onDefinitionsChange(event) {
-      dispatch(setDocValue(stateProps.id, 'definitions', event.target.value));
-    },
-    onPatternsChange(event) {
-      dispatch(setDocValue(stateProps.id, 'patterns', event.target.value));
+    onInputChange(event) {
+      dispatch(setDocValue(stateProps.id, 'input', event.target.value));
     },
   }),
 )(Main);
