@@ -1,5 +1,5 @@
 {
-  "name": "lex",
+  "name": "@jeanfredrik/lex",
   "description": "Test-drive your phonotactics",
   "version": "1.1.0",
   "private": true,
