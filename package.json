@@ -37,6 +37,6 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "deploy": "now deploy build"
+    "deploy": "npm run build && now deploy build --name lex"
   }
 }
