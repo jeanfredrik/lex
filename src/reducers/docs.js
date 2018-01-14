@@ -1,8 +1,5 @@
-import randomstring from 'randomstring';
-import {
-  set,
-  findIndex,
-} from 'lodash/fp';
+import randomstring from 'randomstring'
+import { set, findIndex } from 'lodash/fp'
 
 const defaultDocValues = {
   input: [
@@ -15,12 +12,12 @@ const defaultDocValues = {
     'CVFCV',
     '',
   ].join('\n'),
-};
+}
 
 export default (docs = [], action) => {
   switch (action.type) {
     case 'PATCH_FROM_LOCAL_STORAGE':
-      return action.values.docs;
+      return action.values.docs
     case 'ADD_DOC':
       return [
         ...docs,
@@ -28,18 +25,17 @@ export default (docs = [], action) => {
           id: randomstring.generate(),
           ...defaultDocValues,
         },
-      ];
+      ]
     case 'SET_DOC_VALUE':
-      const index = findIndex(doc => doc.id === action.docId, docs);
+      const index = findIndex(
+        doc => doc.id === action.docId,
+        docs,
+      )
       if (~index) {
-        return set(
-          [index, action.key],
-          action.value,
-          docs,
-        );
+        return set([index, action.key], action.value, docs)
       }
-      return docs;
+      return docs
     default:
-      return docs;
+      return docs
   }
-};
+}
