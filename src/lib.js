@@ -3,14 +3,13 @@ import {
   flow,
   fromPairs,
   map,
-  sample,
   times,
   uniq,
 } from 'lodash/fp'
 
 const extractDefinitions = flow([
   filter(statement => statement.type === 'Definition'),
-  map(({ identifier, items }) => [identifier, items]),
+  map(({ identifier, symbols }) => [identifier, symbols]),
   fromPairs,
 ])
 
@@ -31,7 +30,7 @@ const sampleBy = iterator => elements => {
   })
 }
 
-const samplePattern = sampleBy(pattern => pattern.weight)
+const sampleByWeight = sampleBy(({ weight = 1 }) => weight)
 
 const makePattern = ({ parts }) =>
   parts
@@ -48,7 +47,7 @@ const makePattern = ({ parts }) =>
     .join('')
 
 const randomPattern = patterns => {
-  let pattern = samplePattern(patterns)
+  let pattern = sampleByWeight(patterns)
   return makePattern(pattern)
 }
 
@@ -57,9 +56,11 @@ function makeWord(pattern, definitions) {
   if (keys.length === 0) {
     return pattern
   }
+  console.log(definitions)
   const re = new RegExp(`(${keys.join('|')})`, 'g')
-  return pattern.replace(re, (match, p1) =>
-    sample(definitions[p1]),
+  return pattern.replace(
+    re,
+    (match, p1) => sampleByWeight(definitions[p1]).grapheme,
   )
 }
 
