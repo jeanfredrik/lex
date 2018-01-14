@@ -54,9 +54,9 @@
     lodash "^4.2.0"
     to-fast-properties "^2.0.0"
 
-"@jeanfredrik/lex-parser@^2.1.2":
-  version "2.1.2"
-  resolved "https://registry.yarnpkg.com/@jeanfredrik/lex-parser/-/lex-parser-2.1.2.tgz#47ef828bb4f3a7a7f750246a97789aa4c961e3fb"
+"@jeanfredrik/lex-parser@^3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@jeanfredrik/lex-parser/-/lex-parser-3.0.0.tgz#66c427ae3050d7952cc3ed8b492a55f6aabffc81"
   dependencies:
     nearley "^2.10.1"
 

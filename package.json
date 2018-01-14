@@ -19,7 +19,7 @@
     "react-scripts": "1.0.7"
   },
   "dependencies": {
-    "@jeanfredrik/lex-parser": "^2.1.2",
+    "@jeanfredrik/lex-parser": "^3.0.0",
     "common-tags": "^1.7.2",
     "lodash": "^4.17.4",
     "prop-types": "^15.5.10",
