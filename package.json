@@ -1,7 +1,7 @@
 {
-  "name": "lex",
+  "name": "@jeanfredrik/lex",
   "description": "Test-drive your phonotactics",
-  "version": "1.1.0",
+  "version": "3.0.0",
   "private": true,
   "repository": {
     "type": "git",
@@ -10,15 +10,19 @@
   "author": "Fredrik Johansson <jeanfredrik@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "eslint": "^3.19.0",
-    "eslint-config-airbnb": "^15.0.1",
-    "eslint-plugin-import": "^2.2.0",
-    "eslint-plugin-jsx-a11y": "^5.0.1",
-    "eslint-plugin-react": "^7.0.1",
+    "babel-eslint": "^8.2.1",
+    "eslint": "^4.15.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-prettier": "^2.4.0",
+    "eslint-plugin-react": "^7.5.1",
+    "prettier": "^1.10.2",
     "react-scripts": "1.0.7"
   },
   "dependencies": {
+    "@jeanfredrik/lex-parser": "^3.0.0",
+    "common-tags": "^1.7.2",
     "lodash": "^4.17.4",
+    "prop-types": "^15.5.10",
     "randomstring": "^1.1.5",
     "react": "^15.5.4",
     "react-autobind": "^1.0.6",
@@ -33,6 +37,6 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "deploy": "now deploy build"
+    "deploy": "npm run build && now deploy build --name lex"
   }
 }

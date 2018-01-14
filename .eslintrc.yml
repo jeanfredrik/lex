@@ -1,8 +1,24 @@
-extends: airbnb
+extends:
+  - prettier
+plugins:
+  - prettier
+  - react
 parser: babel-eslint
 env:
   browser: true
+  es6: true
+  node: true
 rules:
-  react/jsx-filename-extension: 0
-  no-case-declarations: 0
-  no-bitwise: 0
+  no-undef: 2
+  no-undefined: 2
+  no-unused-vars: 1
+  react/jsx-uses-react: 1
+  react/jsx-uses-vars: 1
+  prettier/prettier:
+    - 2
+    - singleQuote: true
+      semi: false
+      printWidth: 60
+      trailingComma: all
+      bracketSpacing: true
+      jsxBracketSameLine: false
