@@ -51,6 +51,35 @@ const migrations = [
       }
     }
   },
+  // Merge `patterns` and `definitions` fields into one `input` field on all documents.
+  () => {
+    if (
+      !localStorage.has('jeanfredrik/lex/3') &&
+      localStorage.has('jeanfredrik/lex/1')
+    ) {
+      const oldStorage = localStorage.get(
+        'jeanfredrik/lex/1',
+      )
+      const { docs } = oldStorage
+      if (docs) {
+        window.localStorage.clear()
+        const news = stripIndent`
+          # New in version 3.0:
+          # - Symbols can also have weights now,
+          #   so more common phonemes can appear more often.
+          #   Example:
+          V=a*5, e*10, i*2, o*2, u
+        `
+        const newStorage = {
+          docs: docs.map(({ input, ...rest }) => ({
+            ...rest,
+            input: `${input}\n\n${news}`,
+          })),
+        }
+        localStorage.set('jeanfredrik/lex/3', newStorage)
+      }
+    }
+  },
 ]
 
 export default () => {

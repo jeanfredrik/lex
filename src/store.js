@@ -15,7 +15,7 @@ const enhancer = composeEnhancers(
   persist(
     pick(['docs']),
     'PATCH_FROM_LOCAL_STORAGE',
-    'jeanfredrik/lex/1',
+    'jeanfredrik/lex/3',
   ),
 )
 
