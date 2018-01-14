@@ -25,7 +25,7 @@ const extractDefinitions = flow([
   filter(statement => statement.type === 'Definition'),
   map(({ identifier, items }) => [identifier, items]),
   fromPairs,
-]);
+])
 
 const extractPatterns = flow([
   filter(statement => statement.type === 'Pattern'),
@@ -41,15 +41,17 @@ export function makeWord(pattern, definitions) {
 
 export function makeWords({ statements }) {
   if (!statements || statements.length === 0) {
-    return [];
+    return []
   }
-  const definitions = extractDefinitions(statements);
-  const patterns = extractPatterns(statements);
+  const definitions = extractDefinitions(statements)
+  const patterns = extractPatterns(statements)
   if (patterns.length === 0) {
-    return [];
+    return []
   }
   return flow([
-    times(() => makeWord(sample(patterns), definitions)),
+    times(() =>
+      makeWord(randomPattern(patterns), definitions),
+    ),
     uniq,
-  ])(80);
+  ])(80)
 }
