@@ -53,10 +53,11 @@ const randomPattern = patterns => {
 }
 
 function makeWord(pattern, definitions) {
-  const re = new RegExp(
-    `(${Object.keys(definitions).join('|')})`,
-    'g',
-  )
+  const keys = Object.keys(definitions)
+  if (keys.length === 0) {
+    return pattern
+  }
+  const re = new RegExp(`(${keys.join('|')})`, 'g')
   return pattern.replace(re, (match, p1) =>
     sample(definitions[p1]),
   )
